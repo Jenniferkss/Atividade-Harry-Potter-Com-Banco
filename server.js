@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-
+import bruxosRoutes from './src/routes/bruxoRoute.js'
 // Criar aplicação com Express e configurar para aceitar JSON
 const app = express();
 app.use(express.json());
@@ -14,6 +14,8 @@ app.get("/", (req, res) => {
   res.json({ message: "🧙 API dos bruxos funcionando!" });
 });
 
+// Aqui vão suas rotas 
+app.use('/bruxos', bruxosRoutes);
 
 // Iniciar servidor escutando na porta definida
 app.listen(serverPort, () => {
